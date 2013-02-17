@@ -122,11 +122,11 @@
     // check the name for possible existence of "points" for people using the 
     // trello scrum plugin (https://chrome.google.com/webstore/detail/jdbcdblgjdpmfninkoogcfpnkjmndgje?utm_source=chrome-ntp-icon)
     // if the points exist we want ot strip them from the name and extract their value out
-    var hasPoints = /^\((\d+)\)/.test(name)
+    var hasPoints = /^\((\d|\.+)\)/.test(name)
     var points = "?"
     if(hasPoints){
-      points = /^\((\d+)\)/.exec(name)[1]
-      name = name.replace(/^\((\d+)\)/, "")
+      points = /^\((\d+|\.)\)/.exec(name)[1]
+      name = name.replace(/^\((\d|\.+)\)/, "")
     }
 
     // get the card description
